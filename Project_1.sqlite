@@ -1,0 +1,18 @@
+CREATE TABLE friends(
+  id INTEGER
+  ,name TEXT
+  ,birthday DATE
+);
+
+INSERT INTO friends (id,name,birthday)
+VALUES (1,'Ororo Munroe','05-30-1940')
+      ,(2,'BFF 1','MM-DD-YYYY')
+      ,(3,'BFF 2','MM-DD-YYYY')
+;
+UPDATE friends
+SET name = 'Storm'
+WHERE id = 1
+;
+SELECT *
+FROM
+    friends
