@@ -1,44 +1,74 @@
 SELECT * 
 FROM nomnom
 ;
-/*Column Names
-name (restaurant name)
-neighborhood
-cuisine
-review 0-5
-price $-$$$$
-health ABCDF
-*/
+--What are the distinct neighborhoods?
 SELECT DISTINCT 
     neighborhood
 FROM
     nomnom
 ;
-/*
-Brooklyn
-Midtown
-Chinatown
-Uptown
-Queens
-Downtown
-*/
+--What are the distinct cuisine types?
 SELECT DISTINCT 
     cuisine
 FROM
     nomnom
 ;
-/*
-Steak
-Korean
-Chinese
-Pizza
-Ethiopian
-Vegetarian
-Italian
-Japanese
-American
-Mediterranean
-Indian
-Soul Food
-Mexican
-*/
+--Suppose we would like some Chinese takeout.
+SELECT * 
+FROM 
+    nomnom
+WHERE
+    cuisine = 'Chinese'
+;
+--Return all the restaurants with reviews of 4 and above.    
+SELECT * 
+FROM 
+    nomnom
+WHERE
+    review >= 4
+;
+--Suppose Abbi and Ilana want to have a fancy dinner date.
+--Return all the restaurants that are Italian and $$$. 
+SELECT * 
+FROM 
+    nomnom
+WHERE
+    cuisine = 'Italian' AND price = '$$$'   
+;
+--Your coworker Trey can’t remember the exact name of a restaurant he went to but he knows
+--it contains the word ‘meatball’ in it.
+--(OR can be used more than once)
+SELECT * 
+FROM 
+    nomnom
+WHERE
+    neighborhood = 'Midtown' OR neighborhood = 'Downtown' OR neighborhood = 'Chinatown'
+;
+--Find all the health grade pending restaurants (empty values).
+SELECT * 
+FROM 
+    nomnom
+WHERE
+    health IS NULL    
+;
+--Create a Top 10 Restaurants Ranking based on reviews.
+SELECT *
+FROM
+    nomnom
+ORDER BY 
+    review DESC 
+LIMIT 10     
+;
+--Use a CASE statement to change the rating system to:
+SELECT 
+    *
+    ,CASE 
+      WHEN review > 4.5 THEN 'Extraordinary'
+      WHEN review > 4   THEN 'Excellent'
+      WHEN review > 3   THEN 'Good'
+      WHEN review > 2   THEN 'Fair'
+      ELSE 'Poor'
+      END AS 'Rating Cat'
+  FROM 
+      nomnom
+  
