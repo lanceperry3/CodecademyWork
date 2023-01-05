@@ -1,0 +1,44 @@
+SELECT * 
+FROM nomnom
+;
+/*Column Names
+name (restaurant name)
+neighborhood
+cuisine
+review 0-5
+price $-$$$$
+health ABCDF
+*/
+SELECT DISTINCT 
+    neighborhood
+FROM
+    nomnom
+;
+/*
+Brooklyn
+Midtown
+Chinatown
+Uptown
+Queens
+Downtown
+*/
+SELECT DISTINCT 
+    cuisine
+FROM
+    nomnom
+;
+/*
+Steak
+Korean
+Chinese
+Pizza
+Ethiopian
+Vegetarian
+Italian
+Japanese
+American
+Mediterranean
+Indian
+Soul Food
+Mexican
+*/
